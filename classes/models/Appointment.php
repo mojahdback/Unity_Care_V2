@@ -1,24 +1,23 @@
 <?php
+
 class Appointment
 {
-    protected ?int $id;
-    protected string $appointmentDate;
-    protected string $appointmentTime;
-    protected string $reason;
-    protected string $status; 
-    protected int $doctorId;
-    protected int $patientId;
+    private int $id;
+    private string $appointmentDate;
+    private string $appointmentTime;
+    private string $reason;
+    private string $status;
+    private int $doctorId;
+    private int $patientId;
 
     public function __construct(
         string $appointmentDate,
         string $appointmentTime,
         string $reason,
-        string $status,
         int $doctorId,
         int $patientId,
-        ?int $id = null
+        string $status = 'scheduled'
     ) {
-        $this->id = $id;
         $this->appointmentDate = $appointmentDate;
         $this->appointmentTime = $appointmentTime;
         $this->reason = $reason;
@@ -27,24 +26,57 @@ class Appointment
         $this->patientId = $patientId;
     }
 
+    /* ===== Getters & Setters ===== */
 
-    public function getId(): ?int { return $this->id; }
-    public function getDate(): string { return $this->appointmentDate; }
-    public function setDate(string $d): void { $this->appointmentDate = $d; }
+    public function getId(): int
+    {
+        return $this->id;
+    }
 
-    public function getTime(): string { return $this->appointmentTime; }
-    public function setTime(string $t): void { $this->appointmentTime = $t; }
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
 
-    public function getReason(): string { return $this->reason; }
-    public function setReason(string $r): void { $this->reason = $r; }
+    public function getAppointmentDate(): string
+    {
+        return $this->appointmentDate;
+    }
 
-    public function getStatus(): string { return $this->status; }
-    public function setStatus(string $s): void { $this->status = $s; }
+    public function getAppointmentTime(): string
+    {
+        return $this->appointmentTime;
+    }
 
-    public function getDoctorId(): int { return $this->doctorId; }
-    public function getPatientId(): int { return $this->patientId; }
+    public function getReason(): string
+    {
+        return $this->reason;
+    }
 
-    
-    public function markAsDone(): void { $this->status = 'done'; }
-    public function cancel(): void { $this->status = 'cancelled'; }
+    public function getStatus(): string
+    {
+        return $this->status;
+    }
+
+    public function getDoctorId(): int
+    {
+        return $this->doctorId;
+    }
+
+    public function getPatientId(): int
+    {
+        return $this->patientId;
+    }
+
+    /* ===== Business Logic ===== */
+
+    public function cancel(): void
+    {
+        $this->status = 'cancelled';
+    }
+
+    public function markAsDone(): void
+    {
+        $this->status = 'done';
+    }
 }

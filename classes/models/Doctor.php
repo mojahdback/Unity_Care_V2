@@ -33,13 +33,13 @@ class Doctor extends User
         $this->departmentId = $departmentId;
     }
 
-    
+    /* ===== Role ===== */
     public function getRole(): string
     {
         return 'doctor';
     }
 
-
+    /* ===== Getters & Setters ===== */
 
     public function getDoctorId(): int
     {

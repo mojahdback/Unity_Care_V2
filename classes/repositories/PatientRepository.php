@@ -36,7 +36,7 @@ class PatientRepository extends BaseRepository
     }
 
     public function update(Patient $patient): bool
-{
+    {
     $stmt = $this->db->prepare(
         "UPDATE patients SET
             first_name = :first,
@@ -57,6 +57,6 @@ class PatientRepository extends BaseRepository
         'address' => $patient->getAddress(),
         'id'      => $patient->getPatientId()
     ]);
-}
+    }
 
 }

@@ -119,7 +119,7 @@ class Patient extends User
         $this->address = trim($address);
     }
 
-
+    
 
     public function getFullName(): string
     {

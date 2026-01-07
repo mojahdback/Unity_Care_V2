@@ -1,21 +1,36 @@
 <?php
+
 class Medication
 {
-    protected ?int $id;
-    protected string $name;
-    protected string $instructions;
+    private int $id;
+    private string $name;
+    private string $instructions;
 
-    public function __construct(string $name, string $instructions, ?int $id = null)
+    public function __construct(string $name, string $instructions)
     {
-        $this->id = $id;
         $this->name = $name;
         $this->instructions = $instructions;
     }
 
-    public function getId(): ?int { return $this->id; }
-    public function getName(): string { return $this->name; }
-    public function setName(string $n): void { $this->name = $n; }
 
-    public function getInstructions(): string { return $this->instructions; }
-    public function setInstructions(string $i): void { $this->instructions = $i; }
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function getInstructions(): string
+    {
+        return $this->instructions;
+    }
 }
