@@ -1,0 +1,6 @@
+<?php
+
+Auth::requireRole('patient');
+
+
+?>
